@@ -1,0 +1,9 @@
+frontend/node_modules
+frontend/.DS_*
+frontend/*.log
+frontend/logs
+frontend/**/*.backup.*
+frontend/**/*.back.*
+
+backend/.venv
+

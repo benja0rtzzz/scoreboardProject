@@ -1,0 +1,116 @@
+/* Gamertag Input Component Styles */
+.gamertag-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 32px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .gamertag-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  
+  .gamertag-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .gamertag-label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #444;
+  }
+  
+  .required {
+    color: #e53e3e;
+    margin-left: 4px;
+  }
+  
+  .optional {
+    font-size: 14px;
+    color: #718096;
+    font-weight: normal;
+    margin-left: 4px;
+  }
+  
+  .gamertag-input {
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  
+  .gamertag-input:focus {
+    outline: none;
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+  }
+  
+  .gamertag-input::placeholder {
+    color: #a0aec0;
+  }
+  
+  .gamertag-error {
+    padding: 12px;
+    background-color: #fff5f5;
+    border-left: 4px solid #f56565;
+    color: #c53030;
+    font-size: 14px;
+  }
+  
+  .gamertag-button {
+    margin-top: 8px;
+    padding: 12px 24px;
+    background-color: #3182ce;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .gamertag-button:hover:not(:disabled) {
+    background-color: #2b6cb0;
+  }
+  
+  .gamertag-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.5);
+  }
+  
+  .gamertag-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #718096;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    .gamertag-container {
+      padding: 20px;
+    }
+    
+    .gamertag-input {
+      padding: 10px 12px;
+    }
+    
+    .gamertag-button {
+      padding: 10px 18px;
+    }
+  }
