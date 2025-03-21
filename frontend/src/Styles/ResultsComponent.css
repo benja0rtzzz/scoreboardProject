@@ -1,55 +1,80 @@
 .results-container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 20px auto;
-  }
-  
-  .results-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .results-section {
-    margin-bottom: 20px;
-  }
-  
-  .result-item {
-    background: #f9f9f9;
-    padding: 10px;
-    border-radius: 6px;
-    margin-bottom: 10px;
-    border-left: 4px solid #007bff;
-  }
-  
-  .result-filename {
-    font-weight: bold;
-    color: #555;
-  }
-  
-  .result-text {
-    color: #222;
-    margin-top: 4px;
-  }
-  
-  .gamertag-section {
-    background: #f1f1f1;
-    padding: 12px;
-    border-radius: 6px;
-    margin-top: 10px;
-  }
-  
-  .gamertag-title {
-    font-weight: bold;
-    color: #444;
-  }
-  
-  .gamertag-text {
-    color: #222;
-    margin-top: 4px;
-  }
-  
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  margin-left: 60px;
+  margin-top: 20px;
+  max-width: 800px;
+}
+
+.results-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #222;
+  text-align: center;
+}
+
+.results-section {
+  margin-bottom: 25px;
+}
+
+.result-item {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border-left: 6px solid #007bff;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.result-item:hover {
+  transform: scale(1.02);
+}
+
+.result-filename {
+  font-weight: bold;
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.result-text {
+  color: #444;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.gamertag-section {
+  background: #e3f2fd;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 12px;
+  border-left: 5px solid #007bff;
+}
+
+.gamertag-title {
+  font-weight: bold;
+  color: #007bff;
+  font-size: 17px;
+}
+
+.gamertag-text {
+  color: #222;
+  margin-top: 6px;
+  font-size: 15px;
+}
+
+.no-player {
+  color: #888;
+  font-style: italic;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.screenshot{
+  width: 550px;
+  height: 300px;
+}

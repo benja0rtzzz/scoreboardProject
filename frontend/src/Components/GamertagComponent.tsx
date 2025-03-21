@@ -3,12 +3,10 @@ import "../Styles/GamertagComponent.css";
 
 interface Props {
   primaryTag: string;
-  secondaryTag: string;
   setPrimaryTag: (tag: string) => void;
-  setSecondaryTag: (tag: string) => void;
 }
 
-const GamertagComponent = ({primaryTag, secondaryTag, setPrimaryTag, setSecondaryTag} : Props) => {
+const GamertagComponent = ({primaryTag, setPrimaryTag} : Props) => {
 
   const [error, setError] = useState<string | null>(null);
 
@@ -17,10 +15,6 @@ const GamertagComponent = ({primaryTag, secondaryTag, setPrimaryTag, setSecondar
     if (error && event.target.value.trim()) {
       setError(null);
     }
-  };
-
-  const handleSecondaryChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSecondaryTag(event.target.value);
   };
 
   const handleSubmit = (event: FormEvent) => {
@@ -50,20 +44,6 @@ const GamertagComponent = ({primaryTag, secondaryTag, setPrimaryTag, setSecondar
             placeholder="Enter primary gamertag"
             className="gamertag-input"
             required
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="secondary-tag" className="gamertag-label">
-            Secondary Gamertag <span className="optional">(optional)</span>
-          </label>
-          <input
-            id="secondary-tag"
-            type="text"
-            value={secondaryTag}
-            onChange={handleSecondaryChange}
-            placeholder="Enter secondary gamertag (optional)"
-            className="gamertag-input"
           />
         </div>
 

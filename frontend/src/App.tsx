@@ -6,18 +6,21 @@ import ResultsComponent from "./Components/ResultsComponent";
 
 import "./Styles/App.css";
 
-// Define the UploadResponse interface
-interface ApiResponse {
-  texts: { [filename: string]: string };
-  matches: { 
-    [filename: string]: { 
-      primary_tag_found: boolean;
-      secondary_tag_found: boolean | null;
-    }
-  };
-  primary_tag: string;
-  secondary_tag: string | null;
+// Define the API Response interface
+interface Player {
+  gamertag: string;
+  kills: number;
+  deaths: number;
+  score: number;
 }
+
+interface ApiResponseItem {
+  filename: string;
+  player1: Player | null;
+  player2: Player | null;
+}
+
+type ApiResponse = ApiResponseItem[];
 
 export function App() {
   // Images
@@ -26,7 +29,6 @@ export function App() {
 
   // Gamertags
   const [primaryTag, setPrimaryTag] = useState<string>("");
-  const [secondaryTag, setSecondaryTag] = useState<string>("");
 
   // Handle form submission
   const [atLeastOneImage, setAtLeastOneImage] = useState<boolean>(false);
@@ -40,7 +42,6 @@ export function App() {
     }
 
     formData.append("primary_tag", primaryTag);
-    formData.append("secondary_tag", secondaryTag);
 
     try {
       const response = await axios.post<ApiResponse>(
@@ -51,15 +52,7 @@ export function App() {
           headers: { "Content-Type": "multipart/form-data" },
         }
       );
-      const { texts, matches, primary_tag, secondary_tag } = response.data;
-
-      // Update states with the response data
-      setResults({
-        texts,
-        matches,
-        primary_tag,
-        secondary_tag,
-      });
+      setResults(response.data);
     } catch (error) {
       console.error("Upload failed:", error);
     }
@@ -71,30 +64,31 @@ export function App() {
 
   return (
     <div className="app-container">
-      <h1 className="title">Image Upload & Text Extraction</h1>
+      <h1 className="title">ScoreBoard Analyzer</h1>
+      <div className="component-container">
+        
+        <div className="card-2x">
+          <UploadComponent images={images} setImages={setImages} />
+          <GamertagComponent
+            primaryTag={primaryTag}
+            setPrimaryTag={setPrimaryTag}
+          />
+        </div>
 
-      <div className="card">
-        <UploadComponent images={images} setImages={setImages} />
+        <button
+            type="submit"
+            className="submit-button"
+            disabled={!primaryTag.trim() || !atLeastOneImage}
+            onClick={handleUpload}
+          >
+            Analyze Scoreboards
+          </button>
+
+        <div className="results-card">
+          <h1 className="subtitle">Your results will show up here: </h1>
+          <ResultsComponent results={results ?? null} images={images} />
+        </div>
       </div>
-
-      <div className="card">
-        <GamertagComponent
-          primaryTag={primaryTag}
-          secondaryTag={secondaryTag}
-          setPrimaryTag={setPrimaryTag}
-          setSecondaryTag={setSecondaryTag}
-        />
-      </div>
-
-      <button
-        type="submit"
-        className="submit-button"
-        disabled={!primaryTag.trim() || !atLeastOneImage}
-        onClick={handleUpload}
-      >
-        Submit Gamertags
-      </button>
-      <ResultsComponent results={results} />
     </div>
   );
 }

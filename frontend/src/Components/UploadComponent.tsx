@@ -29,7 +29,7 @@ export default function UploadComponent({
 
   return (
     <div className="upload-container">
-      <h1 className="upload-title">Image Upload</h1>
+      <h1 className="upload-title">Upload your scoreboards here</h1>
 
       <div className="upload-form-group">
         <label className="upload-label">Select images (max {MAX_FILES})</label>
